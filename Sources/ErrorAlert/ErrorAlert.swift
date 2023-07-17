@@ -8,19 +8,48 @@ public enum ErrorType {
     case multipleButtonError(viewData: MultipleButtonErrorViewData)
     
     public struct DefaultErrorViewData {
-        let title: String
-        let message: String
-        let buttonText: String
-        let handler: (() -> Void)?
+        public let title: String
+        public let message: String
+        public let buttonText: String
+        public let handler: (() -> Void)?
+        
+        public init(
+            title: String = "エラー",
+            message: String = "",
+            buttonText: String = "OK",
+            handler: ( () -> Void)? = nil
+        ) {
+            self.title = title
+            self.message = message
+            self.buttonText = buttonText
+            self.handler = handler
+        }
     }
     
     public struct MultipleButtonErrorViewData {
-        let title: String
-        let message: String
-        let primaryButtonText: String
-        let secondaryButtonText: String
-        let primaryButtonHandler: (() -> Void)?
-        let secondaryButtonHandler: (() -> Void)?
+        public let title: String
+        public let message: String
+        public let primaryButtonText: String
+        public let secondaryButtonText: String
+        public let primaryButtonHandler: (() -> Void)?
+        public let secondaryButtonHandler: (() -> Void)?
+        
+        public init(
+            title: String = "エラー",
+            message: String = "",
+            primaryButtonText: String = "OK",
+            secondaryButtonText: String = "キャンセル",
+            primaryButtonHandler: ( () -> Void)? = nil,
+            secondaryButtonHandler: ( () -> Void)? = nil
+        ) {
+            self.title = title
+            self.message = message
+            self.primaryButtonText = primaryButtonText
+            self.secondaryButtonText = secondaryButtonText
+            self.primaryButtonHandler = primaryButtonHandler
+            self.secondaryButtonHandler = secondaryButtonHandler
+        }
+        
     }
 }
 
